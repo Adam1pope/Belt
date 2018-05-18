@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Appointments Page</title>
+</head>
+<body>
+	  <h2>Hello, {{user.name}}</h2>
+	 <h3>Here are your appointments for today, {{request.session.time}}
+
+	 
+	 	
+	 	{%for apt in user_apts%}
+		<li>{{apt.tasks}} {{apt.date}} {{apt.time}}  {{apt.status}} <a href='/edit'>Edit</a>  <a href='/delete'>Delete</a>   </li>
+		{% endfor %}
+
+
+	 	
+	 	<h3>Add Appointment</h3>
+	 	<form action ='/process' method="POST">
+			{% csrf_token%}>
+			Date: <input name="date" type="date">
+			Time: <input name="time" type="time">
+			Tasks: <input type="text" name="tasks">
+			Status:<input type="text" name="status">
+			<input type="submit" name="submit" value= "Add">
+		</form>	
+
+
+
+
+
+
+</body>
+</html>

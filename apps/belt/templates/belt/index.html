@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Appointments</title>
+</head>
+<body>
+		<h2>Welcome!</h2>
+		{%if messages %}
+		{%for message in messages%}
+		<li>{{ message }}</li>
+		{% endfor %}
+		{% endif %}
+
+
+		<form action ='/register' method="POST">
+			{% csrf_token%}
+			Name: <input type="text" name="name" placeholder="name">
+			Email: <input type="text" name="email" placeholder="email">
+			Password: <input type="password" name="password" placeholder="password">
+			Confirm Password: <input type="password" name="conf_password" placeholder="email">
+			<input name="date" type="date">
+			<input type="submit" name="submit" value= "Register">
+		</form>	
+
+		<form action ='/login' method="POST">
+			{% csrf_token%}>
+			Email: <input type="text" name="email" placeholder="email">
+			Password: <input type="password" name="password" placeholder="email">
+			<input type="submit" name="submit" value= "Login">
+		</form>	
+
+
+</body>
+</html>
